@@ -1,0 +1,38 @@
+.image-preview {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+  }
+  
+  .image-preview img {
+    max-width: 150px;
+    max-height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    object-fit: cover; /* Mantener proporciones */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  ion-item-divider {
+    margin-top: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--ion-color-medium);
+  }
+  
+  ion-item {
+    margin-bottom: 10px;
+  }
+  
+  ion-button {
+    margin-top: 10px;
+  }
+  
+  ion-input[type="file"] {
+    padding: 8px 0; /* Espaciado alrededor del selector de archivos */
+  }
+  
+  ion-label {
+    font-size: 14px;
+  }
+  

@@ -1,0 +1,37 @@
+.vehiculo-container {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaciado entre la imagen y el texto */
+}
+
+.vehiculo-imagen {
+  width: 80px; /* Tamaño más pequeño para la imagen */
+  height: 80px;
+  object-fit: cover; /* Mantener la proporción de la imagen y recortar si es necesario */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde ligero alrededor de la imagen */
+}
+
+ion-label {
+  flex: 1; /* Permitir que el texto ocupe el espacio restante */
+}
+
+ion-item {
+  margin-bottom: 10px; /* Espaciado entre los ítems de la lista */
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px; /* Espaciado para la lista de servicios */
+  list-style-type: disc; /* Puntos para los ítems de la lista */
+}
+
+h2 {
+  font-size: 16px; /* Ajustar el tamaño del título */
+  margin: 0;
+}
+
+p {
+  font-size: 14px; /* Ajustar el tamaño del texto secundario */
+  margin: 5px 0;
+}

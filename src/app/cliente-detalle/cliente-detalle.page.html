@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEditing ? 'Editar Cliente' : 'Nuevo Cliente' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="saveCliente()">Guardar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Datos del cliente -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="cliente.nombre" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contacto</ion-label>
+      <ion-input [(ngModel)]="cliente.contacto" required></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- Formulario para agregar un nuevo vehículo -->
+  <ion-item-divider>Agregar Vehículo</ion-item-divider>
+  <ion-item>
+    <ion-label position="floating">Marca</ion-label>
+    <ion-input [(ngModel)]="vehiculo.marca"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Modelo</ion-label>
+    <ion-input [(ngModel)]="vehiculo.modelo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Año</ion-label>
+    <ion-input [(ngModel)]="vehiculo.anio" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Seleccionar Imagen</ion-label>
+    <ion-input type="file" (change)="onFileChange($event)"></ion-input>
+  </ion-item>
+
+  <!-- Vista previa de la imagen seleccionada -->
+  <div class="image-preview" *ngIf="vehiculo.imagen">
+    <img [src]="vehiculo.imagen" alt="Vista previa de la imagen" />
+  </div>
+
+  <ion-item-divider>Servicios del Vehículo</ion-item-divider>
+  <ion-item *ngFor="let servicio of serviciosDisponibles">
+    <ion-label>{{ servicio }}</ion-label>
+    <ion-checkbox [(ngModel)]="vehiculo.servicios[servicio]"></ion-checkbox>
+  </ion-item>
+
+  <ion-button expand="full" (click)="addVehiculo()">Agregar Vehículo</ion-button>
+
+  <!-- Lista de vehículos -->
+  <ion-list>
+    <ion-item-divider>Vehículos</ion-item-divider>
+    <ion-item *ngFor="let vehiculo of cliente.vehiculos; let i = index">
+      <ion-label>
+        {{ vehiculo.marca }} {{ vehiculo.modelo }} ({{ vehiculo.anio }})
+        <br />
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button color="primary" (click)="editVehiculo(i)">Editar</ion-button>
+        <ion-button color="danger" (click)="removeVehiculo(i)">Eliminar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

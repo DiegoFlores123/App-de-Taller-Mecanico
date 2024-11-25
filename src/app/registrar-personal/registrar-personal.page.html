@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar Personal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input [(ngModel)]="nuevoMecanico.nombre" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Especialidad</ion-label>
+        <ion-input [(ngModel)]="nuevoMecanico.especialidad" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Horario</ion-label>
+        <ion-input [(ngModel)]="nuevoMecanico.horario" type="text"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="registrarMecanico()">Registrar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

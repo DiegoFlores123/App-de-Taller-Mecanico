@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Historial de Vehículos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goBack()">Volver</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let vehiculo of cliente.vehiculos">
+      <div class="vehiculo-container">
+        <!-- Imagen del vehículo con estilo mejorado -->
+        <img *ngIf="vehiculo.imagen" [src]="vehiculo.imagen" alt="Imagen del vehículo" class="vehiculo-imagen" />
+        
+        <!-- Información del vehículo -->
+        <ion-label>
+          <h2>{{ vehiculo.marca }} {{ vehiculo.modelo }} ({{ vehiculo.anio }})</h2>
+          <p><strong>Servicios Seleccionados:</strong></p>
+          <ul>
+            <li *ngFor="let servicio of vehiculo.servicios">{{ servicio }}</li>
+          </ul>
+          <br />
+        </ion-label>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

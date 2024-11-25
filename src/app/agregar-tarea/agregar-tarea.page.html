@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Asignar Tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Descripción de la tarea</ion-label>
+    <ion-input [(ngModel)]="taskDescription" type="text" placeholder="Ingrese la tarea"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="asignarTarea()">Asignar Tarea</ion-button>
+  
+  <ion-list>
+    <ion-item *ngFor="let tarea of tareas; let i = index">
+      <ion-label>
+        <h2>{{ tarea.descripcion }}</h2>
+        <p *ngIf="tarea.completada">Tarea completada</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button *ngIf="!tarea.completada" (click)="marcarCompletada(i)">Marcar como completada</ion-button>
+        <ion-button color="danger" (click)="eliminarTarea(i)">Eliminar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="volverAPersonal()">Volver</ion-button>
+</ion-content>

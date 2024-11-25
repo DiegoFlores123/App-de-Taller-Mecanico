@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Control de Personal</ion-title>
+    
+    <!-- Botón de volver al menú -->
+    <ion-buttons slot="end">
+      <ion-button (click)="goToMenu()">Volver</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Listado de mecánicos -->
+  <ion-list>
+    <ion-item *ngFor="let mecanico of personal">
+      <ion-label>
+        <h2>{{ mecanico.nombre }}</h2>
+        <p>{{ mecanico.especialidad }}</p>
+        <p>{{ mecanico.horario }}</p>
+      </ion-label>
+      <ion-buttons slot="end" style="flex-direction: column;">
+        <ion-button expand="block" color="primary" (click)="asignarTareas(mecanico)">Tareas</ion-button>
+        <ion-button expand="block" color="secondary" (click)="gestionarAsistencia(mecanico)">Asistencias</ion-button>
+        <ion-button expand="block" color="warning" (click)="editarPersonal(mecanico)">Editar</ion-button>
+        <ion-button expand="block" color="danger" (click)="eliminarPersonal(mecanico)">Eliminar</ion-button>
+        <br>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón flotante para ir a la página de registrar personal -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="goToRegistrarPersonal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

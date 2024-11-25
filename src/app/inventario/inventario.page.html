@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inventario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToMenu()">Volver</ion-button> <!-- Botón para ir al menú -->
+      <ion-button [routerLink]="['/historial-inventario']">Historial</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Barra de búsqueda -->
+  <ion-searchbar [(ngModel)]="searchText" (ionInput)="filtrarProductos()" placeholder="Buscar producto"></ion-searchbar>
+
+  <!-- Lista de productos filtrados -->
+  <ion-list>
+    <ion-item *ngFor="let producto of productosFiltrados">
+      <ion-label>
+        <h2>{{ producto.nombre }}</h2>
+        <p>Stock: {{ producto.stock }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editarProducto(producto)">Editar</ion-button>
+        <ion-button color="danger" (click)="producto.id ? eliminarProducto(producto.id) : null">
+          Eliminar
+        </ion-button>        
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón flotante para agregar un nuevo producto -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="nuevoProducto()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

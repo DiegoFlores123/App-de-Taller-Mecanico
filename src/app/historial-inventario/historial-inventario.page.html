@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Historial de Inventario</ion-title>
+    <ion-buttons slot="end">
+      <!-- Botón para volver a la página de Inventario -->
+      <ion-button [routerLink]="['/inventario']">Volver</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of historial">
+      <ion-label>
+        <h2>{{ item.descripcion }}</h2>
+        <p>{{ item.fecha }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Clientes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToMenu()">Volver</ion-button> <!-- Botón para ir al menú -->
+      <ion-button (click)="addCliente()">Agregar Cliente</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let cliente of clientes">
+      <ion-label>
+        <h2>{{ cliente.nombre }}</h2>
+        <p>{{ cliente.contacto }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button color="primary" (click)="editCliente(cliente)">Editar</ion-button>
+        <ion-button color="secondary" (click)="viewHistorial(cliente)">Historial</ion-button>
+        <ion-button color="danger" (click)="confirmDelete(cliente)">Borrar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

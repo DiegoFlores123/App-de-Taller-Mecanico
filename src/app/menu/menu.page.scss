@@ -1,0 +1,48 @@
+.menu-button {
+    --border-radius: 12px;           /* Bordes redondeados */
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para los botones */
+    --color: white; /* Color del texto */
+    --font-weight: bold; /* Negrita */
+    margin-bottom: 20px; /* Espaciado entre botones */
+    font-size: 18px; /* Aumentar tamaño de fuente */
+    padding: 20px 20px; /* Aumentar espaciado interno */
+    display: flex; /* Utilizamos flexbox para alinear el icono y el texto */
+    justify-content: start; /* Alineación del contenido hacia la izquierda */
+    align-items: center; /* Centrado vertical del contenido */
+    height: 120px; /* Altura más grande del botón */
+    text-align: left; /* Alineación del texto a la izquierda */
+  }
+  
+  .menu-icon {
+    width: 40px; /* Tamaño más grande para el ícono */
+    height: 40px; /* Tamaño más grande para el ícono */
+    margin-right: 20px; /* Mayor espaciado entre el ícono y el texto */
+  }
+  
+  ion-button {
+    text-transform: uppercase; /* Letras en mayúsculas para un toque más formal */
+    background-color: var(--ion-color-primary); /* Mantener el color azul por defecto */
+  }
+  
+  .menu-button:hover {
+    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Aumentar sombra al hacer hover */
+  }
+  
+  .header-title {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el texto y la imagen */
+    justify-content: center; /* Centra todo el contenido */
+  }
+  
+  .header-title span {
+    font-size: 22px; /* Tamaño del texto del nombre del taller */
+    font-weight: bold; /* Hacer que el texto sea negrita */
+    margin-right: 10px; /* Espacio entre el texto y el logo */
+  }
+  
+  .logo {
+    width: 30px; /* Tamaño del logo */
+    height: 30px; /* Tamaño del logo */
+    object-fit: contain; /* Asegura que el logo mantenga su proporción */
+  }
+  

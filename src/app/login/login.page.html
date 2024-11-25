@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Recordar contraseña</ion-label>
+      <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe"></ion-checkbox>
+    </ion-item>
+    <ion-button expand="full" type="submit">Iniciar Sesión</ion-button>
+  </form>
+  <ion-button expand="full" (click)="goToRegister()">Registrarse</ion-button>
+</ion-content>

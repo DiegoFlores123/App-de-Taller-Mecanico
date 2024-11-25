@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestionar Asistencia</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goBack()">Volver</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>{{ mecanico.nombre }}</h2>
+  <p>{{ mecanico.especialidad }}</p>
+  <p>{{ mecanico.horario }}</p>
+
+  <ion-item>
+    <ion-label>Asistencias: {{ asistenciaCount }}</ion-label>
+    <ion-button expand="full" color="success" (click)="incrementAsistencia()">Asistir</ion-button>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Ausencias: {{ ausenciaCount }}</ion-label>
+    <ion-button expand="full" color="danger" (click)="incrementAusencia()">Ausentarse</ion-button>
+  </ion-item>
+</ion-content>

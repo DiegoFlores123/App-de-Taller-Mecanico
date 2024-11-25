@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Correo Electrónico</ion-label>
+    <ion-input type="email" [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Rol</ion-label>
+    <ion-select [(ngModel)]="role">
+      <ion-select-option value="Administrador">Administrador</ion-select-option>
+      <ion-select-option value="Mecánico">Mecánico</ion-select-option>
+      <ion-select-option value="Cajero">Cajero</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button expand="full" (click)="register()">Registrar</ion-button>
+</ion-content>
