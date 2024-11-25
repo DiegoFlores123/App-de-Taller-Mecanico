@@ -25,15 +25,28 @@ export class InventarioService {
 
   guardarProducto(producto: Producto): void {
     const productos = this.cargarProductosDeStorage();
+
     if (producto.id) {
-      // Editar producto existente
       const index = productos.findIndex((p) => p.id === producto.id);
       if (index !== -1) {
+        const productoAnterior = { ...productos[index] };
         productos[index] = producto;
-        this.historialService.agregarHistorial(`Producto "${producto.nombre}" editado`);
+
+        const cambios: string[] = [];
+        if (producto.nombre !== productoAnterior.nombre) {
+          cambios.push(`Nombre cambiado de "${productoAnterior.nombre}" a "${producto.nombre}"`);
+        }
+        if (producto.stock !== productoAnterior.stock) {
+          const diferencia = producto.stock - productoAnterior.stock;
+          const cambioStock = diferencia > 0 ? `sumado ${diferencia}` : `restado ${Math.abs(diferencia)}`;
+          cambios.push(`Stock ${cambioStock} (anterior: ${productoAnterior.stock}, actual: ${producto.stock})`);
+        }
+
+        if (cambios.length > 0) {
+          this.historialService.agregarHistorial(`Producto "${producto.nombre}": ${cambios.join(', ')}`);
+        }
       }
     } else {
-      // Agregar nuevo producto
       producto.id = Date.now();
       productos.push(producto);
       this.historialService.agregarHistorial(`Producto "${producto.nombre}" agregado`);

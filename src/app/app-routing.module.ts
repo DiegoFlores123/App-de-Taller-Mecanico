@@ -66,7 +66,11 @@ const routes: Routes = [
   {
     path: 'editar-personal',
     loadChildren: () => import('./editar-personal/editar-personal.module').then( m => m.EditarPersonalPageModule)
+  },  {
+    path: 'historial-tareas',
+    loadChildren: () => import('./historial-tareas/historial-tareas.module').then( m => m.HistorialTareasPageModule)
   },
+
 ];
 
 @NgModule({
